@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi {{ sekolah }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Sekolah" style="height: 60px; width: auto; object-fit: contain;">
+            <div>
+                <h1>{{ sekolah }}</h1>
+                <p>{{ slogan }}</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#" class="active">Beranda</a></li>            
+            <li><a href="/berita">Berita</a></li>
+            <li><a href="/visi-misi">Visi Misi</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-slider" style="margin: 20px 5%; position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); height: 350px;">
+        <div class="slide active" style="display: block; width: 100%; height: 100%; position: relative;">
+            <img src="{{ url_for('static', filename='slide1.jpeg') }}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="slide-text" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px; text-align: center;">
+                <h2 style="font-size: 1.8rem; margin: 0;">SELAMAT DATANG DI PORTAL RESMI</h2>
+                <p style="margin: 5px 0 0 0; color: #ffcc00; font-weight: bold;">{{ sekolah }}</p>
+            </div>
+        </div>
+
+        <div class="slide" style="display: none; width: 100%; height: 100%; position: relative;">
+            <img src="{{ url_for('static', filename='slide2.jpeg') }}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="slide-text" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px; text-align: center;">
+                <h2 style="font-size: 1.8rem; margin: 0;">LINGKUNGAN BELAJAR NYAMAN & BERTEKNOLOGI</h2>
+                <p style="margin: 5px 0 0 0; color: #ffcc00; font-weight: bold;">Membentuk Generasi Cerdas dan Berkarakter</p>
+            </div>
+        </div>
+
+        <div class="slide" style="display: none; width: 100%; height: 100%; position: relative;">
+            <img src="{{ url_for('static', filename='slide3.jpeg') }}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="slide-text" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px; text-align: center;">
+                <h2 style="font-size: 1.8rem; margin: 0;">UKIRAN PRESTASI DAN KREATIVITAS SISWA</h2>
+                <p style="margin: 5px 0 0 0; color: #ffcc00; font-weight: bold;">Wadah Mengembangkan Potensi Unggul Peserta Didik</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let indeksSlide = 0;
+        const daftarSlide = document.querySelectorAll('.slide');
+
+        function putarSlideOtomatis() {
+            daftarSlide.forEach(slide => {
+                slide.style.display = 'none';
+            });
+
+            indeksSlide++;
+            if (indeksSlide > daftarSlide.length) {
+                indeksSlide = 1;
+            }
+
+            daftarSlide[indeksSlide - 1].style.display = 'block';
+            setTimeout(putarSlideOtomatis, 4000);
+        }
+        window.onload = putarSlideOtomatis;
+    </script>
+
+    <div class="content-container" style="padding: 30px 5%; max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: flex-start;">
+        
+        <main style="flex: 2; min-width: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+            <div class="card" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                    
+                    <div style="flex-shrink: 0; width: 220px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                        <img src="{{ url_for('static', filename='kepsek.png') }}" alt="Foto Kepala Sekolah" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto;">
+                        <p style="margin: 15px 0 0 0; font-weight: bold; color: #333; font-size: 1rem; line-height: 1.4; text-align: center; width: 100%;">
+                            Nurhidayah, S.Ag., M.Pd.<br>
+                            <span style="font-size: 0.85rem; color: #666; font-weight: normal; display: block; margin-top: 4px;">Kepala UPT SMPN 1 Patampanua</span>
+                        </p>
+                    </div>
+
+                    <div style="flex: 1;">
+                        <h2 style="color: #0056b3; margin-top: 0;">Sambutan Kepala Sekolah</h2>
+                        <p style="font-size: 1.05rem; line-height: 1.7; color: #333; text-align: justify; margin-top: 10px;">
+                            Selamat datang di sistem informasi resmi UPT SMP NEGERI 1 PATAMPANUA. Media ini dirancangkan untuk memberikan kemudahan akses informasi bagi seluruh warga sekolah, orang tua, dan masyarakat luas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="card" id="bagian-berita" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h2 style="color: #0056b3; margin-top: 0;">Berita Terbaru</h2>
+                <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+                
+                {% for item in berita %}
+                    <div class="news-item" style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #ccc; display: flex; gap: 20px; align-items: flex-start;">
+                        
+                        {% if item.gambar %}
+                            <div class="news-image" style="flex-shrink: 0;">
+                                <img src="{{ url_for('static', filename=item.gambar) }}" alt="{{ item.judul }}" style="width: 180px; height: 120px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            </div>
+                        {% endif %}
+                        
+                        <div class="news-text" style="flex: 1;">
+                            <h3 style="margin: 0 0 5px 0;">
+                                <a href="/berita/{{ item.id }}" style="text-decoration: none; color: #0056b3; font-size: 1.2rem; font-weight: bold;">
+                                    {{ item.judul }}
+                                </a>
+                            </h3>
+                            <p class="date" style="color: #888; font-size: 0.8rem; margin-bottom: 10px;">📅 Diposting pada: {{ item.tanggal }}</p>
+                            <p style="font-size: 0.95rem; color: #444; margin-bottom: 12px; text-align: justify;">
+                                {{ item.isi | truncate(100) }}
+                            </p>
+                            <a href="/berita/{{ item.id }}" style="display: inline-block; font-size: 0.85rem; color: #fff; background-color: #0056b3; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-weight: 600;">
+                                Baca Selengkapnya &rarr;
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </main>
+
+        <aside class="sidebar" style="flex: 1; max-width: 350px; width: 100%;">
+            <div class="card bg-alert">
+                <h2 style="margin-top: 0;">📢 Pengumuman</h2>
+                <hr>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                    {% for item in pengumuman %}
+                        <li style="margin-bottom: 15px; border-bottom: 1px dashed #e6b800; padding-bottom: 10px;">
+                            <strong style="color: #b38600; display: block; font-size: 0.95rem;">
+                                {{ item.kategori }}:
+                            </strong>
+                            <span style="font-size: 0.9rem; color: #333;">
+                                {{ item.isi }}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+    <footer class="main-footer">
+        <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <div class="social-links" style="display: flex; gap: 20px; font-size: 1.8rem;">
+                <a href="#" target="_blank" style="color: #3b5998;" title="Facebook Sekolah">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" target="_blank" style="color: #e1306c;" title="Instagram Sekolah">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" style="color: #010101;" title="TikTok Sekolah">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p style="margin: 0; color: #aaa;">&copy; {{ tahun }} {{ sekolah }}. Semua Hak Dilindungi.</p>
+        </div>
+    </footer >
+
+</body>
+</html>

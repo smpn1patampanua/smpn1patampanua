@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi & Misi - {{ sekolah }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Sekolah" style="height: 60px; width: auto; object-fit: contain;">
+            <div>
+                <h1>{{ sekolah }}</h1>
+                <p>{{ slogan }}</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/">Beranda</a></li>
+            <li><a href="/berita">Berita</a></li>
+            <li><a href="/visi-misi" class="active">Visi Misi</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container" style="padding: 30px 5%; max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: flex-start;">
+        
+        <main style="flex: 2; min-width: 0;">
+            <div class="card" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                
+                <h2 style="color: #0056b3; margin-top: 0; font-size: 1.8rem; border-bottom: 2px solid #0056b3; padding-bottom: 10px; margin-bottom: 30px;">
+                    🎯 Visi & Misi Sekolah
+                </h2>
+
+                <div style="margin-bottom: 40px; background-color: #f8f9fa; padding: 25px; border-radius: 6px; border-left: 5px solid #0056b3;">
+                    <h3 style="color: #0056b3; margin-top: 0; font-size: 1.4rem; margin-bottom: 15px;">VISI</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #222; font-style: italic; text-align: center; font-weight: 500; margin: 0;">
+                        "Terwujudnya Peserta Didik yang Cerdas, Berkarakter, dan Berteknologi berdasarkan Imtaq."
+                    </p>
+                </div>
+
+                <div>
+                    <h3 style="color: #0056b3; margin-top: 0; font-size: 1.4rem; margin-bottom: 15px;">MISI</h3>
+                    <ol style="font-size: 1.05rem; line-height: 1.9; color: #333; padding-left: 20px; margin: 0;">
+                        <li style="margin-bottom: 12px; text-align: justify;">
+                            Meningkatkan mutu pembelajaran yang efektif, inovatif, dan berbasis teknologi informasi guna mengembangkan potensi kecerdasan akademis dan non-akademis peserta didik.
+                        </li>
+                        <li style="margin-bottom: 12px; text-align: justify;">
+                            Menanamkan nilai-nilai karakter, budi pekerti luhur, dan disiplin melalui pembiasaan kehidupan keagamaan serta budaya bangsa di lingkungan sekolah.
+                        </li>
+                        <li style="margin-bottom: 12px; text-align: justify;">
+                            Memfasilitasi pemanfaatan sarana teknologi secara bijak, kreatif, dan bertanggung jawab demi menyiapkan generasi yang siap menghadapi era digital.
+                        </li>
+                        <li style="margin-bottom: 0; text-align: justify;">
+                            Menjalin kemitraan yang harmonis antara pihak sekolah, orang tua, masyarakat, dan instansi terkait untuk menciptakan ekosistem pendidikan yang kondusif.
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </main>
+
+        <aside class="sidebar" style="flex: 1; max-width: 350px; width: 100%;">
+            <div class="card bg-alert" style="background-color: #fffde7; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #fbc02d;">
+                <h2 style="margin-top: 0; color: #0056b3;">📢 Pengumuman</h2>
+                <hr style="border: 0; border-top: 1px solid #e0e0e0; margin-bottom: 20px;">
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                    {% for item in pengumuman %}
+                        <li style="margin-bottom: 15px; border-bottom: 1px dashed #e6b800; padding-bottom: 10px;">
+                            <strong style="color: #b38600; display: block; font-size: 0.95rem;">
+                                {{ item.kategori }}:
+                            </strong>
+                            <span style="font-size: 0.9rem; color: #333;">
+                                {{ item.isi }}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <div class="social-links" style="display: flex; gap: 20px; font-size: 1.8rem;">
+                <a href="#" target="_blank" style="color: #3b5998;" title="Facebook Sekolah"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" style="color: #e1306c;" title="Instagram Sekolah"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" style="color: #010101;" title="TikTok Sekolah"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p style="margin: 0; color: #aaa;">&copy; {{ tahun }} {{ sekolah }}. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

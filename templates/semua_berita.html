@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita - {{ sekolah }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-color: #f4f6f9; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif;">
+
+    <header class="main-header" style="background-color: white; color: #0056b3; padding: 20px 5%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo-area" style="display: flex; align-items: center; gap: 15px;">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px; width: auto; object-fit: contain;">
+            <div>
+                <h1 style="margin: 0; font-size: 1.6rem; font-weight: bold; color: #0056b3;">{{ sekolah }}</h1>
+                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">{{ slogan }}</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/">Beranda</a></li>            
+            <li><a href="/berita" style="background-color: #003d80; border-radius: 4px;">Berita</a></li>
+            <li><a href="#">Visi Misi</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+   <div style="padding: 30px 5%; max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: flex-start;">
+        
+        <main style="flex: 2;">
+            <article class="card" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h2 style="color: #0056b3; margin-top: 0;">📰 Daftar Berita Lengkap</h2>
+                <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 30px;">
+                
+                {% for item in berita %}
+    <div style="margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px dashed #e0e0e0; display: flex; gap: 25px; align-items: flex-start;">
+        
+        {% if item.gambar %}
+            <div style="flex-shrink: 0;">
+                <img src="{{ url_for('static', filename=item.gambar) }}" alt="{{ item.judul }}" style="width: 240px; height: 160px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            </div>
+        {% endif %}
+        
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+            
+            <div style="margin-bottom: 8px;">
+                <span style="background-color: #0056b3; color: white; padding: 3px 8px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; text-transform: uppercase;">Artikel</span>
+                <span style="color: #888; font-size: 0.8rem; margin-left: 10px;">📅 {{ item.tanggal }}</span>
+            </div>
+
+            <h3 style="margin: 0 0 10px 0; color: #0056b3; font-size: 1.35rem; font-weight: 700; line-height: 1.3;">
+                {{ item.judul }}
+            </h3>
+            
+            <p style="font-size: 0.95rem; color: #333; text-align: justify; white-space: pre-line; line-height: 1.6; margin: 0;">
+                {{ item.isi }}
+            </p>
+            
+        </div>
+    </div>
+{% endfor %}
+            </article>
+        </main>
+
+        <aside style="flex: 1; max-width: 350px; position: sticky; top: 20px;">
+            <div class="card" style="background-color: #fffde7; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #fbc02d;">
+                <h2 style="color: #0056b3; margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.4rem;">
+                    📢 Pengumuman
+                </h2>
+                <hr style="border: 0; border-top: 1px solid #e0e0e0; margin-bottom: 20px;">
+                
+                {% for info in pengumuman %}
+                    <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #e0e0e0;">
+                        <h4 style="color: #f57f17; margin: 0 0 5px 0; font-size: 1rem; font-weight: bold;">
+                            {{ info.kategori }}:
+                        </h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #444; line-height: 1.5;">
+                            {{ info.isi }}
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </aside>
+
+    </div>
+
+    <footer style="background-color: #222; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; margin-top: 50px;">
+        <p>&copy; {{ tahun }} {{ sekolah }}. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
