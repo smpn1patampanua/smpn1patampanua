@@ -70,7 +70,7 @@ def inisialisasi_database():
     if cursor.fetchone()[0] == 0:
         cursor.execute("INSERT INTO pengumuman (kategori, isi) VALUES ('PPDB 2026', 'Pendaftaran Jalur Zonasi segera dibuka bulan Juli ini.')")
         cursor.execute("INSERT INTO pengumuman (kategori, isi) VALUES ('ANBK 2026', 'Simulasi utama untuk kelas 8 akan dilaksanakan pekan depan.')")
-        cursor.execute("INSERT INTO pengumuman (kategori, isi) VALUES ('Libur Sekolah', 'Libur semester genap dimulai tanggal 29 Juni hingga 12 Juli 2026.')")
+        cursor.execute("INSERT INTO pengumuman (kategori, isi) VALUES ('Libur Sekolah', 'Libur semester genap belum ditentukan.')")
         
     koneksi.commit()
     koneksi.close()
