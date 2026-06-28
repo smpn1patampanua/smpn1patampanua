@@ -9,22 +9,22 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="logo-area">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Sekolah" style="height: 60px; width: auto; object-fit: contain;">
-            <div>
-                <h1>{{ sekolah }}</h1>
-                <p>{{ slogan }}</p>
-            </div>
+    <header class="main-header" style="background-color: white; color: #0056b3; padding: 20px 5%; display: flex; align-items: center; justify-content: space-between;">
+    <div class="logo-area" style="display: flex; align-items: center; gap: 15px;">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px; width: auto; object-fit: contain;">
+        <div>
+            <h1 style="margin: 0; font-size: 1.6rem; font-weight: bold; color: #0056b3;">{{ sekolah }}</h1>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">{{ slogan }}</p>
         </div>
-    </header>
+    </div>
+</header>
 
     <nav class="main-nav">
-        <ul>
-            <li><a href="/">Beranda</a></li>
-            <li><a href="/berita">Berita</a></li>
-            <li><a href="/visi-misi" class="active">Visi Misi</a></li>
-            <li><a href="#">Kontak</a></li>
+        <ul style="display: flex; list-style: none; margin: 0; background-color: #0056b3; padding: 0 5%;">
+            <li><a href="/" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Beranda</a></li>            
+            <li><a href="/berita" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Berita</a></li>
+            <li><a href="/visi_misi" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Visi Misi</a></li>
+            <li><a href="#" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Kontak</a></li>
         </ul>
     </nav>
 
@@ -35,12 +35,12 @@
                 
                 <h2 style="color: #0056b3; margin-top: 0; font-size: 1.8rem; border-bottom: 2px solid #0056b3; padding-bottom: 10px; margin-bottom: 30px;">
                     🎯 Visi & Misi Sekolah
-                </h2>
+                </h2> 
 
                 <div style="margin-bottom: 40px; background-color: #f8f9fa; padding: 25px; border-radius: 6px; border-left: 5px solid #0056b3;">
                     <h3 style="color: #0056b3; margin-top: 0; font-size: 1.4rem; margin-bottom: 15px;">VISI</h3>
                     <p style="font-size: 1.2rem; line-height: 1.8; color: #222; font-style: italic; text-align: center; font-weight: 500; margin: 0;">
-                        "Terwujudnya Peserta Didik yang Cerdas, Berkarakter, dan Berteknologi berdasarkan Imtaq."
+                        "Terwujudnya murid yang berkarakter, literat, berpikir mendalam, cinta lingkungan, dan berbudaya lokal menuju Pinrang cerdas dan berdaya saring."
                     </p>
                 </div>
 
@@ -48,16 +48,22 @@
                     <h3 style="color: #0056b3; margin-top: 0; font-size: 1.4rem; margin-bottom: 15px;">MISI</h3>
                     <ol style="font-size: 1.05rem; line-height: 1.9; color: #333; padding-left: 20px; margin: 0;">
                         <li style="margin-bottom: 12px; text-align: justify;">
-                            Meningkatkan mutu pembelajaran yang efektif, inovatif, dan berbasis teknologi informasi guna mengembangkan potensi kecerdasan akademis dan non-akademis peserta didik.
+                            Menumbuhkan karakter murid yang selaras dengan dimensi profil lulusan.
                         </li>
                         <li style="margin-bottom: 12px; text-align: justify;">
-                            Menanamkan nilai-nilai karakter, budi pekerti luhur, dan disiplin melalui pembiasaan kehidupan keagamaan serta budaya bangsa di lingkungan sekolah.
+                            Menerapkan pembelajaran mendalam yang menumbuhkan kemampuan berpikir kritis dan kreatif.
                         </li>
                         <li style="margin-bottom: 12px; text-align: justify;">
-                            Memfasilitasi pemanfaatan sarana teknologi secara bijak, kreatif, dan bertanggung jawab demi menyiapkan generasi yang siap menghadapi era digital.
+                            Mengembangkan budaya literasi baca, tulis, numerasi, dan digital di seluruh warga sekolah.
+                        </li>
+                        <li style="margin-bottom: 12px; text-align: justify;">
+                            Mengintegrasikan nilai-nilai budaya, kearifan lokal, dan kepedulian lingkungan dalam setiap kegiatan belajar.
+                        </li>
+                        <li style="margin-bottom: 12px; text-align: justify;">
+                            Meningkatkan kompetensi guru sebagai fasilitator pembelajaran yang berpihak pada murid.
                         </li>
                         <li style="margin-bottom: 0; text-align: justify;">
-                            Menjalin kemitraan yang harmonis antara pihak sekolah, orang tua, masyarakat, dan instansi terkait untuk menciptakan ekosistem pendidikan yang kondusif.
+                            Menjalin kemitraan dengan masyarakat dan pemerintah daerah untuk memperkuat karakter dan literasi peserta didik.   
                         </li>
                     </ol>
                 </div>
