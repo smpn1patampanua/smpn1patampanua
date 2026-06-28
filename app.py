@@ -54,7 +54,7 @@ def inisialisasi_database():
             )
         ''')
         
-                 # 3. Berita PPDB (Versi Lengkap)
+        # 3. Berita PPDB (Versi Lengkap)
         cursor.execute('''
             INSERT INTO berita (judul, tanggal, isi, gambar) 
             VALUES (
@@ -132,10 +132,9 @@ def halaman_semua_berita():
     
     return render_template('semua_berita.html', sekolah=nama_sekolah, slogan=tagline, berita=semua_berita, pengumuman=semua_pengumuman, tahun=tahun_sekarang)
 
-
-@app.route('/visi-misi')
+# PERBAIKAN DI SINI: Mengubah '/visi-misi' menjadi '/visi_misi' agar sesuai dengan HTML
+@app.route('/visi_misi')
 def visi_misi():
-    # PERBAIKAN DI SINI: Mengambil data pengumuman resmi dari database sqlite
     koneksi = sqlite3.connect('sekolah.db')
     koneksi.row_factory = sqlite3.Row
     cursor = koneksi.cursor()
