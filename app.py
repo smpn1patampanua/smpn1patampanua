@@ -39,7 +39,7 @@ def inisialisasi_database():
                 'Pelaksanaan Simulasi ANBK 2026', 
                 '24 Juni 2026', 
                 'Dalam rangka menguji kesiapan teknis dan mental peserta didik, UPT SMP Negeri 1 Patampanua menggelar kegiatan simulasi Asesmen Nasional Berbasis Komputer (ANBK) tahun ajaran 2025/2026.\n\nKegiatan simulasi ini diikuti oleh seluruh siswa kelas 8 yang terbagi ke dalam beberapa sesi pengerjaan. Laboratorium komputer sekolah telah disiapkan secara matang dengan total 30 unit komputer yang terhubung ke jaringan internet stabil. Kepala sekolah menyampaikan bahwa simulasi ini sangat penting untuk meminimalisir kendala teknis seperti masalah login atau jaringan pada saat hari pelaksanaan ujian utama nanti.\n\nSelama simulasi berlangsung, para siswa tampak antusias and fokus mengerjakan soal-soal literasi serta numerasi. Proktor dan teknisi sekolah juga bersiaga penuh di dalam ruangan untuk memastikan seluruh proses berjalan tanpa hambatan berarti.', 
-                'ANBK.jpeg'
+                'anbk.jpeg'
             )
         ''')
         
