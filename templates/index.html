@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - {{ sekolah }}</title>
+    <style>
+        body { background-color: #f4f6f9; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        .slider-container { width: 90%; margin: 20px auto; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .slider { display: flex; transition: transform 0.5s ease-in-out; }
+        .slider img { width: 100%; height: 350px; object-fit: cover; flex-shrink: 0; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .content-container { padding: 30px 5%; max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; flex: 1; }
+        
+        @media (max-width: 768px) {
+            .content-container { flex-direction: column; padding: 15px; }
+            .slider img { height: 200px; }
+        }
+        main { flex: 2; min-width: 300px; width: 100%; }
+        aside { flex: 1; min-width: 300px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header" style="background-color: white; color: #0056b3; padding: 20px 5%; display: flex; align-items: center; gap: 15px;">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px; width: auto; object-fit: contain;">
+        <div>
+            <h1 style="margin: 0; font-size: 1.6rem; font-weight: bold; color: #0056b3;">{{ sekolah }}</h1>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">{{ slogan }}</p>
+        </div>
+    </header>
+
+    <nav style="background-color: #0056b3;">
+        <ul style="display: flex; list-style: none; margin: 0; padding: 0 5%;">
+            <li><a href="/" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">Beranda</a></li>
+            <li><a href="/berita" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">Berita</a></li>
+            <li><a href="/visi_misi" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">Visi Misi</a></li>
+            <li><a href="/sippn" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">SIPPN</a></li>
+        </ul>
+    </nav>
+
+    <div class="slider-container">
+        <div class="slider" id="imageSlider">
+            <img src="{{ url_for('static', filename='slide1.jpeg') }}" alt="Slide 1">
+            <img src="{{ url_for('static', filename='slide2.jpeg') }}" alt="Slide 2">
+            <img src="{{ url_for('static', filename='slide3.jpeg') }}" alt="Slide 3">
+        </div>
+    </div>
+
+    <div class="content-container">
+        <main>
+            <div class="card" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <img src="{{ url_for('static', filename='kepsek2.png') }}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
+                <div style="flex: 1; min-width: 200px;">
+                    <h2 style="color: #0056b3; margin-top: 0; font-size: 1.2rem;">Sambutan Kepala Sekolah</h2>
+                    <p id="sambutan-text" style="color: #444; line-height: 1.5; font-size: 0.95rem;"></p>
+                </div>
+            </div>
+
+            <article class="card">
+                <h2 style="color: #0056b3; margin-top: 0; border-bottom: 2px solid #0056b3; padding-bottom: 10px;">Berita Terbaru</h2>
+                {% if berita %}
+                    {% for item in berita %}
+                        <div style="display: flex; gap: 20px; margin-top: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                            <img src="{{ url_for('static', filename=item['gambar']) }}" style="width: 150px; height: 100px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <div style="flex: 1;">
+                                <h3 style="margin: 0; color: #333;">{{ item['judul'] }}</h3>
+                                <small style="color: #888; display: block; margin-bottom: 8px;">📅 {{ item['tanggal'] }}</small>
+                                <p class="berita-isi" style="margin: 5px 0;">{{ item['isi'].split()[:30]|join(' ') }}...</p>
+                                <a href="/berita" style="color: #0056b3; font-weight: bold; text-decoration: none;">Selengkapnya →</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="text-align: center; color: #888; padding: 20px;">Belum ada berita yang tersedia saat ini.</p>
+                {% endif %}
+            </article>
+        </main>
+
+        <aside>
+            <div class="card" style="background: #fff9e6; border-left: 5px solid #ffcc00;">
+                <h2 style="margin-top: 0; color: #b38600; font-size: 1.2rem;">📢 Pengumuman</h2>
+                <hr style="border: 0; border-top: 1px solid #ffe599; margin: 10px 0;">
+                {% for item in pengumuman %}
+                    <div style="margin-bottom: 15px; border-bottom: 1px dashed #ffd54f; padding-bottom: 10px;">
+                        <strong style="color: #b38600; font-size: 0.9rem; display: block;">{{ item['kategori'] }}:</strong>
+                        <p style="font-size: 0.9rem; margin: 5px 0 0 0; color: #333;">{{ item['isi'] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='maklumat.jpeg') }}" alt="Maklumat Pelayanan" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+        </aside>
+    </div>
+
+    <footer style="background-color: #0056b3; color: white; padding: 40px 20px; text-align: center; margin-top: 40px;">
+        </footer>
+
+    <script>
+        document.getElementById('sambutan-text').innerText = "Selamat datang di website UPT SMP Negeri 1 Patampanua. Mari bersinergi mewujudkan pendidikan unggul, berkarakter, dan berdaya saing bagi generasi masa depan.";
+        
+        let i = 0;
+        const slides = document.querySelectorAll('.slider img');
+        setInterval(() => {
+            i = (i + 1) % slides.length;
+            document.getElementById('imageSlider').style.transform = `translateX(-${i * 100}%)`;
+        }, 3000);
+    </script>
+</body>
+</html>
