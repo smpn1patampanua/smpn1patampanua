@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi & Misi - {{ sekolah }}</title>
+    <style>
+        body { background-color: #f4f6f9; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .content-container { padding: 30px 5%; max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; flex: 1; }
+        
+        @media (max-width: 768px) {
+            .content-container { flex-direction: column; padding: 15px; }
+        }
+        main { flex: 2; min-width: 300px; width: 100%; }
+        aside { flex: 1; min-width: 300px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header" style="background-color: white; color: #0056b3; padding: 20px 5%; display: flex; align-items: center; gap: 15px;">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px; width: auto; object-fit: contain;">
+        <div>
+            <h1 style="margin: 0; font-size: 1.6rem; font-weight: bold; color: #0056b3;">UPT SMP NEGERI 1 PATAMPANUA</h1>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">Mewujudkan Generasi Cerdas dan Berakhlak</p>
+        </div>
+    </header>
+
+    <nav style="background-color: #0056b3;">
+        <ul style="display: flex; list-style: none; margin: 0; padding: 0 5%;">
+            <li><a href="/" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">Beranda</a></li>
+            <li><a href="/berita" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">Berita</a></li>
+            <li><a href="/visi_misi" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">Visi Misi</a></li>
+            <li><a href="/sippn" style="padding: 15px 20px; color: white; display: block; text-decoration: none;">SIPPN</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <main>
+            <div class="card">
+                <h2 style="color: #0056b3; margin-top: 0; border-bottom: 2px solid #0056b3; padding-bottom: 10px;">🎯 Visi & Misi Sekolah</h2>
+                
+                <div style="margin-bottom: 30px; background-color: #f8f9fa; padding: 20px; border-radius: 6px; border-left: 5px solid #0056b3;">
+                    <h3 style="color: #0056b3; margin-top: 0;">VISI</h3>
+                    <p style="font-style: italic;">"Terwujudnya murid yang berkarakter, literat, berpikir mendalam, cinta lingkungan, dan berbudaya lokal menuju Pinrang cerdas dan berdaya saring."</p>
+                </div>
+
+                <h3>MISI</h3>
+                <ol style="line-height: 1.8; color: #333;">
+                    <li>Menumbuhkan karakter murid yang selaras dengan dimensi profil lulusan.</li>
+                    <li>Menerapkan pembelajaran mendalam yang menumbuhkan kemampuan berpikir kritis dan kreatif.</li>
+                    <li>Mengembangkan budaya literasi baca, tulis, numerasi, dan digital di seluruh warga sekolah.</li>
+                    <li>Mengintegrasikan nilai-nilai budaya, kearifan lokal, dan kepedulian lingkungan dalam setiap kegiatan belajar.</li>
+                    <li>Meningkatkan kompetensi guru sebagai fasilitator pembelajaran yang berpihak pada murid.</li>
+                    <li>Menjalin kemitraan dengan masyarakat dan pemerintah daerah.</li>
+                </ol>
+            </div>
+        </main>
+
+        <aside>
+            <div class="card" style="background: #fff9e6; border-left: 5px solid #ffcc00;">
+                <h2 style="color: #b38600; margin-top: 0; font-size: 1.2rem;">📢 Pengumuman</h2>
+                {% for item in pengumuman %}
+                    <p style="font-size: 0.9rem;"><strong>{{ item.kategori }}:</strong> {{ item.isi }}</p>
+                {% endfor %}
+            </div>
+        </aside>
+    </div>
+
+    <footer style="background-color: #0056b3; color: white; padding: 40px 20px; text-align: center; margin-top: 40px;">
+    <div class="footer-content" style="max-width: 800px; margin: 0 auto;">
+        <p style="margin-bottom: 20px; font-weight: bold;">Ikuti kami di media sosial resmi UPT SMP Negeri 1 Patampanua:</p>
+        
+        <div class="social-icons" style="display: flex; justify-content: center; gap: 40px; margin-bottom: 20px;">
+            <a href="#" target="_blank" style="text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook" style="width: 40px; height: 40px; background: white; border-radius: 50%; padding: 5px; margin-bottom: 5px;">
+                <span style="font-size: 0.8rem;">Facebook</span>
+            </a>
+            
+            <a href="#" target="_blank" style="text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 40px; height: 40px; margin-bottom: 5px;">
+                <span style="font-size: 0.8rem;">Instagram</span>
+            </a>
+            
+            <a href="#" target="_blank" style="text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 40px; height: 40px; background: white; border-radius: 5px; padding: 5px; margin-bottom: 5px;">
+                <span style="font-size: 0.8rem;">TikTok</span>
+            </a>
+        </div>
+        
+        <p class="copyright" style="font-size: 0.8rem; opacity: 0.8;">&copy; 2026 UPT SMP Negeri 1 Patampanua. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
