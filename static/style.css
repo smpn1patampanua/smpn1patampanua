@@ -1,0 +1,9 @@
+/* Memastikan area klik lebih luas */
+.admin-nav a { 
+    display: inline-block; /* Agar padding bekerja lebih baik */
+    transition: background 0.3s;
+}
+
+.admin-nav a:hover {
+    background: #002a5a; /* Efek hover agar terlihat bisa diklik */
+}
