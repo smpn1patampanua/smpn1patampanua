@@ -14,15 +14,12 @@
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .content-container { padding: 30px 5%; max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; flex: 1; }
         
-        /* Flexbox untuk Sambutan Kepsek */
         .sambutan-wrapper { display: flex; gap: 20px; align-items: flex-start; }
         .sambutan-wrapper img { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
 
-        /* Style untuk Social Media Icon */
         .social-icon { color: white; text-decoration: none; transition: transform 0.3s, color 0.3s; display: inline-block; }
         .social-icon:hover { transform: scale(1.2); color: #e0e0e0; }
 
-        /* Responsif */
         @media (max-width: 768px) { 
             .content-container { flex-direction: column; } 
             .sambutan-wrapper { flex-direction: column; align-items: center; text-align: center; }
@@ -119,7 +116,13 @@
                     </div>
                 {% endfor %}
             </div>
+            
             <img src="{{ url_for('static', filename='maklumat.jpeg') }}" style="width: 100%; border-radius: 8px;">
+
+            <!-- BANNER BARU DITAMBAHKAN DI SINI -->
+            <div style="margin-top: 20px;">
+                <img src="{{ url_for('static', filename='pengaduan.jpeg') }}" alt="Banner Tambahan" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
         </aside>
     </div>
 
